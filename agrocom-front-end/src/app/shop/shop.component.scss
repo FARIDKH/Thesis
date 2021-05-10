@@ -1,0 +1,98 @@
+
+
+.open {
+    border:1px solid red;
+}
+
+#shop {
+
+    .left-side {
+        margin-top: 25px;
+    }
+
+    .tags{
+        .tag {
+            display: inline;
+            margin-right: 15px;
+            span{
+                border-radius: 5px;
+                background: darkgreen;
+                padding: 5px 10px;
+                color: whitesmoke;
+            }
+        }
+    }
+
+    .product {
+        border:1px solid black;
+        text-align: center;
+        margin:15px;
+        .product-info {
+            width: 100%;
+            padding: 10px;
+        }
+        .product-image img{
+             width: 100%;
+        }
+
+        .product-category {
+            span {
+                border-radius: 5px;
+                background: lightgreen;
+                // width: inherit;
+                padding: 5px 10px;
+            }
+
+            margin: 10 auto;
+            
+        }
+
+    }
+
+
+    .shop-categories {
+        padding: 25px 5px;
+
+
+        .left-menu-item {
+            margin: 25px 10px;
+        }
+        #dropdownMenuButton {
+            padding: 10px 35px 10px 15px;
+        }
+        .product-categories {
+            button:focus {
+                margin-bottom: 125px;
+            }
+        }
+        
+        .list-group-item {
+            border: none;
+            padding-bottom: 0px;
+            color: gray;
+        }
+
+        .left-menu-info {
+            margin-top: 25px;
+        }
+
+        .left-menu-info-categories {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 0px 15px;
+        }
+
+
+        .left-menu-info-categories .row {
+            color:lighten(black,30%);
+            padding: 15px 20px;
+        }
+
+        .left-menu-info-name {
+            border-bottom:1px solid gray  !important;
+            border-radius: 5px 0px;
+            background: lighten(gray,40%);
+        }
+
+    }
+}

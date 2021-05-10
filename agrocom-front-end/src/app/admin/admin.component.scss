@@ -1,0 +1,27 @@
+
+
+#admin-controller {
+    margin-top: 100px;
+    .controllers {
+        margin-top: 50px;
+        border: 1px solid black;
+    }
+    .controller-name {
+        border-right: 1px solid gray;
+        background: lightgray;
+        padding: 50px;
+        margin-left: 15px;
+        .row {
+            margin: 10px 0;
+        }
+        span {
+            font-size: 20px;
+        }
+    }
+
+    .controller-action {
+        padding: 50px;
+
+    }
+
+}

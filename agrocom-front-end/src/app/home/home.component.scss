@@ -1,0 +1,43 @@
+$primary-green: #32C23A;
+
+
+
+#authen {
+	.left-side {
+		height: 900px;
+		padding: 75px;
+		background: white url("/assets/images/fruit-collection.jpg") no-repeat right top;
+		background-size: cover;
+	}
+	.right-side {
+		height: 900px;
+		background:white;
+		padding:75px;
+		background: white url("/assets/images/fruits-right.jpg") no-repeat left top;
+		background-size: cover;
+		button {
+			margin-top: 25px;
+		}
+		.form-group {
+			width: 70%;
+		}
+		.last-row {
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+
+	}
+
+	h1,h6 {
+		font-family: Cabin;
+	}
+
+	.logo {
+		width: 100px;
+		height: 100px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

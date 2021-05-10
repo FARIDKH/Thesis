@@ -1,0 +1,117 @@
+
+
+
+<div id="shop">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-3 left-side">
+                <div class="shop-categories">
+                    
+                    <div class="left-menu-info">
+                        <div class="left-menu-info-categories">
+                            <div class="row left-menu-info-name">
+                                <h4>
+                                    Categories
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                          <div *ngFor="let productCategory of this.productCategories" >
+                                            <input (click)="addPCFilter(productCategory)" class="form-check-input me-1" type="checkbox" value="tets" aria-label="...">
+                                            <span> {{ productCategory.title }}</span>
+                                          </div>
+                                          
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="left-menu-info">
+                        <div class="left-menu-info-categories">
+                            <div class="row left-menu-info-name">
+                                <h4>
+                                    Price
+                                </h4>
+                            </div>
+                            <div class="row">
+                                <div class="row product-price-filter" >
+                                    <!-- <label for="customRange2" class="form-label">Example range</label> -->
+                                    <div class="col-6">
+                                        <label for="minPrice">Min</label>
+                                        <input (change)="applyPriceFilter()" [(ngModel)]="this.minPriceFilter" type="number" class="form-control" value="{{ this.minPriceFilter }}" min="0" max="{{ this.maxPriceFilter }}" id="minPrice">   
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="maxPrice">Max</label>
+                                        <input (change)="applyPriceFilter()" [(ngModel)]="this.maxPriceFilter" type="number" class="form-control" value="{{ this.maxPriceFilter }}" min="0" max="{{ this.initMaxPriceFilter }}" id="maxPrice">   
+                                    </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-9">
+                <br>
+                <br>
+                <h1>All products</h1>
+                <div class="tags">
+                    <div *ngFor="let pcFilter of this.pcFilters" class="tag">
+                        <span>{{ pcFilter.title  }}</span>
+                    </div>
+                    <div  *ngIf="this.priceFilterIsSelected" class="tag">
+                        <span style="background-color: black;">
+                            Min: {{ this.minPriceFilter }}
+                        </span>
+                    </div>
+                    <div *ngIf="this.priceFilterIsSelected" class="tag">
+                        <span style="background-color: black;">
+                            Max: {{ this.maxPriceFilter }}
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div (click)="goToProductInfo(product.id)" *ngFor="let product of this.allProducts" class="col-3 product">
+                      <div class="row">
+                        <div class="product-image">
+                          <img [src]="product.imgURL" alt="">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div  class="product-info">  
+                              <h6>
+                                {{ product.title }}
+                              </h6>
+    
+    
+                              <span>${{ product.price }}/{{ product.constant }}</span>
+                              <br>
+                              <span>
+                                  by <a href="">{{ product.seller?.firstName }}</a>
+                              </span>
+                              <span>
+                                <br>
+                                (rating: {{ fix(product.seller?.rating) || 0 }}/5 )
+                              </span>
+
+                              <div class="product-category">
+                                  <span> {{ product.productCategory.title }} </span>
+                              </div>
+    
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+

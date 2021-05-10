@@ -1,0 +1,76 @@
+
+<div  class="container">
+
+    <div class="row" id="products">
+        <div class="action-path">
+            <h5>
+                <span [ngClass]="{'selected': this.action.includes('myproducts')}" (click)="changeAction('myproducts')">My products</span> | 
+                <span [ngClass]="{'selected': this.action.includes('createProduct')}" (click)="changeAction('createProduct')">Create Product</span>
+            </h5>
+        </div>
+        <div [ngSwitch]="this.action">
+            <div  *ngSwitchCase="'myproducts'">
+              <div class="row">
+                <div *ngFor="let product of this.products" class="col-3 product">
+                  <div class="row">
+                    <div class="product-image">
+                      <img [src]="product.imgURL"  alt="">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="product-info">  
+                          <h6>
+                            {{ product.title }}
+                          </h6>
+
+
+                          <span>${{ product.price }}</span>
+                          
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+                
+                
+            </div>
+            <div *ngSwitchCase="'createProduct'">
+                <app-create-product></app-create-product>
+            </div>
+            <div *ngSwitchDefault>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            </div>
+        
+    </div>
+
+</div>

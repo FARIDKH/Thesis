@@ -1,0 +1,20 @@
+
+
+
+
+#account {
+    margin-top: 150px;
+    .actions {
+        background: lightgray;
+        .action {
+            padding: 20px 30px;
+            border-bottom: 1px solid gray;
+            font-size: 14px;
+        }
+        .selected {
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}

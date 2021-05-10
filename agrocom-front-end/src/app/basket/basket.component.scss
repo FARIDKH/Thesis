@@ -1,0 +1,56 @@
+#products-table {
+    img {
+        width: 150px;
+        border-radius: 10px;
+    }
+
+    // input{
+    //     width: 50%;
+    // }
+
+    button {
+        background: red;
+        color: white;
+    }
+
+    thead {
+        th {
+            padding: 20px 0px;
+        }
+    }
+
+}
+
+.success-message {
+    margin-top : 50px;
+    background: rgb(127, 248, 14);
+    color: black;
+    padding : 30px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.order-summary {
+
+    background: lightgray;
+    padding : 30px;
+    height: 300px;
+    border-radius: 15px;
+    .title {
+        padding:10px;
+    }
+
+    .subtotal {
+        padding:10px;
+    }
+
+    .total {
+        padding:10px;
+    }
+
+    .btn {
+        background: darkgoldenrod; 
+        color: white;
+        margin:10px; 
+    }
+}

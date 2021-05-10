@@ -1,0 +1,70 @@
+
+
+<div class="container">
+
+    
+
+    <div class="row action-path">
+        <br>
+        <!-- <span>Home | ProductCategory |</span> -->
+    </div>
+
+    <div class="row" id="product-info">
+        <div class="col-3 product-info-image">
+            <img [src]="this.product?.imgURL" alt="">
+        </div>
+        <div class="col-8 product-info-right">
+            <div class="row product-info-title">
+                <h4>{{ this.product?.title }} <span class="product-id"># {{ this.product?.id }}</span></h4>
+            </div>
+            <div class="row product-info-rating">
+                <span> by {{ this.product?.seller?.firstName }} {{ this.product?.seller?.lastName }} with rating</span>
+                <span>
+                    <form [formGroup]="this.rateForm"  action="" id="rate">
+                        <fieldset  (click)="rate($event,this.product?.seller!.id)" class="rating">
+                            <input formControlName="rating" type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            <input formControlName="rating" type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                            <input formControlName="rating" type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input formControlName="rating" type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                            <input formControlName="rating" type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            <input formControlName="rating"  type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                            <input formControlName="rating" type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input formControlName="rating" type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                            <input formControlName="rating" type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            <input formControlName="rating" type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                        </fieldset>
+                    </form>
+                </span>
+            </div>
+            <div class="row product-info-price">
+                <h5>{{ this.product?.price }} HUF // {{this.product?.constant}}</h5>
+            </div>
+            <div class="row product-quantity">
+                <label for="count">Qty: (per {{this.product?.constant}} )</label>  
+                <input [(ngModel)]="this.productAmount" class="form-control" min=0 max={{this.product?.stock}} type="number" id="count"> 
+            </div>
+            <div class="row product-to-basket">
+                <button (click)="addProductToBasket()" type="submit" class="btn">Add to basket</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="other-products-same-category">
+        <div class="col-12 tt">
+            <h4>Check other products in <span style="color:green">{{  this.product?.productCategory?.title }}  </span></h4>
+        </div>
+        
+        <div  (click)="goToProductInfo(item.id)" *ngFor="let item of this.sameCategoryProducts" class="col-2 product">
+            <div class="product-image">
+                <img [src]="item.imgURL" alt="">
+            </div>
+            <div class="product-price">
+                <h3>{{ item.title }} </h3>
+                <span>{{ item.price }} huf</span>
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>

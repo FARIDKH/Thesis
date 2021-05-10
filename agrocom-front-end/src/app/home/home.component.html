@@ -1,0 +1,107 @@
+
+
+
+<div class="container-fluid" id="authen">
+	<div class="row">
+		<div class="col-5 left-side">
+			<div class="row">
+				<h1>
+					Sign up
+				</h1>
+			</div>
+			<div class="row">
+				<h6>
+					Buy or sell agricultural products
+				</h6>
+			</div>
+			<div class="row footer">
+				<div class="logo">
+					<img src="/assets/images/agrocom-logo.png" >
+				</div>
+			</div>
+		</div>
+
+		<div class="col-7 right-side">
+			<form [formGroup]="registerForm"  id="register" *ngIf="showRegister; else login">
+				<div class="form-group">
+					<label for="exampleInputEmail1">First name</label>
+					<input required type="text" formControlName="firstName"  name="user-first-name" class="form-control" id="exampleInputEmail1"  placeholder="Enter first name">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Last name</label>
+					<input required type="text" formControlName="lastName"  name="user-last-name" class="form-control" id="exampleInputEmail1" placeholder="Enter last name">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<input required type="email" formControlName="email"  name="user-email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input required type="password" formControlName="password"  name="user-password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				</div>
+                <div class="form-group">
+					<label for="exampleInputPassword1">Password again</label>
+					<input required type="password" formControlName="password_again"  name="user-password-again" class="form-control" id="exampleInputPassword1" placeholder="Password again">
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" formControlName="sellerValue" name="sellerValue" type="checkbox" value="" id="flexCheckDefault">
+					<label class="form-check-label" for="flexCheckDefault">
+					  Register as seller
+					</label>
+				  </div>
+			  	<button [disabled]="this.registerForm.invalid" type="button" (click)="registerUser()" class="btn btn-primary">Get Started</button>
+			  	<div class="row last-row">
+			  		<span>Already have an account? <span style="color:blue; cursor:pointer"
+                        (click)="changeVal()"> Sign in</span> </span>
+			  	</div>
+			</form>
+            <ng-template #login>
+                <form [formGroup]="loginForm" action="" id="login">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input required type="email" name="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp"  class="form-text text-muted">We'll never share your email with anyone else.</small>
+						
+						
+					</div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input required type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary" (click)="loginUser()">Log in</button>
+                    <div class="row last-row">
+                        <span>Don't have an account? <span style="color:blue; cursor:pointer"
+							(click)="changeVal()"> Sign Up</span> </span>
+                    </div>
+                </form>
+            </ng-template>
+
+			<div *ngIf="errorMessages.length != 0" class="alert alert-danger" role="alert">
+				<ul>
+					<li  *ngFor="let err of errorMessages"  >{{ err }}</li>
+				</ul>
+			</div>
+			
+			<div *ngIf="(loginEmail?.invalid && (loginEmail?.dirty || loginEmail?.touched)) 
+						|| (registerEmail?.invalid && (registerEmail?.dirty || registerEmail?.touched))" class="alert alert-danger">
+				<ul>
+					<li *ngIf="loginEmail?.errors?.email">
+						Email type is wrong
+					</li>
+
+					<li *ngIf="loginEmail?.errors?.required">
+						Email is required
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+	
+</div>
+
+

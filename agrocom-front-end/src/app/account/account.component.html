@@ -1,0 +1,48 @@
+
+<div style="margin-top: 50px;" class="container title">
+    <h3>
+        Welcome <span>{{ this.username }}</span>
+    </h3>
+</div>
+
+<div class="container" id="account">
+
+
+
+    
+    <div class="row">
+        <div class="col-3">
+            
+            <div class="actions">
+                <div class="action" [ngClass]="{'selected': (this.currentPage.includes('user-orders')) }">
+                    <span (click)="changePage('user-orders')">
+                        My orders
+                    </span>
+                </div>
+                <div *ngIf="authIsSeller" class="action" [ngClass]="{'selected': (this.currentPage.includes('products')) }">
+                    <span (click)="changePage('products')" > 
+                        My products
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div  [ngSwitch]="this.currentPage">
+                <div  *ngSwitchCase="'products'">
+                    <app-product *ngIf="this.authIsSeller"></app-product>
+                </div>
+                <div *ngSwitchCase="'user-orders'">
+                    <app-user-order></app-user-order>
+                </div>
+                <div *ngSwitchDefault>
+                    <h1>Account informations</h1>
+            
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+</div>
